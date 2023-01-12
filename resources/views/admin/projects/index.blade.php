@@ -3,6 +3,11 @@
 @section('content')
     <div class="container">
         <h2 class="text-center">La lista progetti</h2>
+        <div class="text-end">
+            <a class="btn btn-primary" href="{{ route('admin.projects.create') }}">
+                Nuovo progetto
+            </a>
+        </div>
         <div class="row justify-content-center">
             <div class="col-8">
                 <table class="table">
@@ -17,7 +22,7 @@
                         @foreach ($projects as $project)
                             <tr>
                                 <th scope="row">{{ $project->title }}</th>
-                                <td>{{ $project->creationDate }}</td>
+                                <td>{{ $project->created_at }}</td>
                                 <td>
                                     <a class="btn btn-success" href="{{ route('admin.projects.show', $project->slug) }}">
                                         <i class="fa-solid fa-eye"></i>

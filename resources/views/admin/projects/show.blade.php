@@ -8,7 +8,7 @@
             </a>
         </div>
         <h2 class="text-center">{{ $project->title }}</h2>
-        <h4 class="mt-3">{{ $project->creationDate }}</h4>
+        <h4 class="mt-3">{{ $project->created_at }}</h4>
         <p>{{ $project->description }}</p>
     </div>
 @endsection

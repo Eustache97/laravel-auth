@@ -13,7 +13,7 @@ class StoreProjectRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,17 @@ class StoreProjectRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => ['required', 'min:3', 'max:150', 'unique:projects'],
+            'description' => ['nullable']
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'title.required' => 'Il titolo è richiesto',
+            'title.min' => 'La lunghezza minima del titolo è di 3 caratteri',
+            'title.max' => 'La lunghezza massima del titolo è di :max caratteri',
+            'title.unique' => 'Questo titolo è già assegnato a un altro elemento'
         ];
     }
 }
