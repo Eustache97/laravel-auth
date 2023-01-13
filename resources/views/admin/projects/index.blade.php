@@ -10,6 +10,11 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-8">
+                @if (session('message'))
+                    <div class="alert alert-success">
+                        {{ session('message') }}
+                    </div>
+                @endif
                 <table class="table">
                     <thead>
                         <tr>
@@ -27,6 +32,17 @@
                                     <a class="btn btn-success" href="{{ route('admin.projects.show', $project->slug) }}">
                                         <i class="fa-solid fa-eye"></i>
                                     </a>
+                                    <a class="btn btn-warning" href="{{ route('admin.projects.edit', $project->slug) }}">
+                                        <i class="fa-solid fa-pencil"></i>
+                                    </a>
+                                    <form action="{{ route('admin.projects.destroy', $project->slug) }}" method="POST"
+                                        class="d-inline-block">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="submit">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
