@@ -32,6 +32,9 @@
                                 {{ $message }}
                             </div>
                         @enderror
+                        <div class="w-25 mt-3 mb-3">
+                            <img id="image_preview" src="" alt="">
+                        </div>
                     </div>
                     <div class="form-group mb-3">
                         <label for="description">Descrizione</label>

@@ -27,17 +27,10 @@
                             </div>
                         @enderror
 
-                        <div class="image_preview">
-                            @if ($project->cover_image)
-                                <div class="w-25 mt-3 mb-3">
-                                    <img src="{{ asset('storage/' . $project->cover_image) }}" alt="">
-                                </div>
-                            @else
-                                <div class="w-25 py-4 text-center text-white bg-secondary mt-3 mb-3">
-                                    Nessun immagine caricata in precedenza
-                                </div>
-                            @endif
+                        <div class="w-25 mt-3 mb-3">
+                            <img id="image_preview" src="{{ asset('storage/' . $project->cover_image) }}" alt="">
                         </div>
+
                         <div class="form-group mb-3">
                             <label for="description">Descrizione</label>
                             <textarea name="description" id="description" rows="10" class="form-control">{{ old('description', $project->description) }}</textarea>
