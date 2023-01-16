@@ -41,7 +41,7 @@ class ProjectController extends Controller
         $form_data = $request->validated();
         $form_data['slug'] = Project::generateSlug($form_data['title']);
         $project = Project::create($form_data);
-        return redirect()->route('admin.projects.index')->with('message', 'Il progetto $project->title è sato creato con successo');
+        return redirect()->route('admin.projects.index')->with('message', "Il progetto $project->title è sato creato con successo");
     }
 
     /**
@@ -78,7 +78,7 @@ class ProjectController extends Controller
         $form_data = $request->validated();
         $form_data['slug'] = Project::generateSlug($form_data['title']);
         $project->update($form_data);
-        return redirect()->route('admin.projects.index')->with('message', 'Il progetto $project->title è stato modificato con successo');
+        return redirect()->route('admin.projects.index')->with('message', "Il progetto $project->title è stato modificato con successo");
     }
 
     /**
@@ -90,6 +90,6 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         $project->delete();
-        return redirect()->route('admin.projects.index')->with('message', 'Il progetto $project->title è stato eliminato con successo');
+        return redirect()->route('admin.projects.index')->with('message', "Il progetto $project->title è stato eliminato con successo");
     }
 }
